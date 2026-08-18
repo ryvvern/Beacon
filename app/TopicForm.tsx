@@ -70,10 +70,10 @@ export default function TopicForm() {
   }
 
   return (
-    <div className={styles.formSection}>
+    <div className={styles.layout}>
       <form onSubmit={handleSubmit} className={styles.form}>
         <label className={styles.field}>
-          Confidence level
+          <span className={styles.fieldLabel}>01 / Confidence level</span>
           <select
             value={confidence}
             onChange={(e) => setConfidence(e.target.value as Confidence)}
@@ -85,7 +85,7 @@ export default function TopicForm() {
         </label>
 
         <label className={styles.field}>
-          What tripped you up recently?
+          <span className={styles.fieldLabel}>02 / What tripped you up</span>
           <textarea
             value={strugglingWith}
             onChange={(e) => {
@@ -101,7 +101,7 @@ export default function TopicForm() {
         </label>
 
         <label className={styles.field}>
-          Time available
+          <span className={styles.fieldLabel}>03 / Time available</span>
           <select
             value={timeAvailable}
             onChange={(e) => setTimeAvailable(e.target.value as TimeAvailable)}
@@ -113,7 +113,7 @@ export default function TopicForm() {
         </label>
 
         <button type="submit" className={styles.submitButton} disabled={isLoading}>
-          {isLoading ? "Finding your topic..." : "Submit"}
+          {isLoading ? "Finding your topic..." : "Submit →"}
         </button>
 
         {isLoading && (
@@ -124,32 +124,46 @@ export default function TopicForm() {
         )}
       </form>
 
-      {error && (
-        <div className={styles.errorBox}>
-          <p>{error}</p>
-        </div>
-      )}
+      <div className={styles.resultColumn}>
+        {error && (
+          <div className={styles.errorBox}>
+            <p>{error}</p>
+          </div>
+        )}
 
-      {result && (
-        <div className={styles.resultBox}>
-          <p>
-            <strong>{result.title}</strong>{" "}
-            <span>({result.difficulty})</span>
-          </p>
-          <p>
-            <strong>Tags:</strong> {result.tags.join(", ")}
-          </p>
-          <p>{result.description}</p>
-          {explanation && (
-            <>
-              <p>
-                <strong>Why this topic?</strong>
-              </p>
-              <p>{explanation}</p>
-            </>
-          )}
-        </div>
-      )}
+        {result && (
+          <div className={styles.resultBox}>
+            <div className={styles.resultHeader}>
+              <span className={styles.eyebrow}>Recommended topic</span>
+              <span className={styles.difficultyLabel}>
+                {result.difficulty}
+              </span>
+            </div>
+            <h2 className={styles.resultTitle}>{result.title}</h2>
+            <div className={styles.tagList}>
+              {result.tags.map((tag) => (
+                <span key={tag} className={styles.tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <p>{result.description}</p>
+            {explanation && (
+              <>
+                <hr className={styles.divider} />
+                <span className={styles.eyebrow}>Why this topic?</span>
+                <p>{explanation}</p>
+              </>
+            )}
+          </div>
+        )}
+
+        {!result && !error && (
+          <div className={styles.placeholderBox}>
+            <p>Your recommendation will appear here.</p>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
