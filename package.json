@@ -1,0 +1,29 @@
+{
+  "name": "beacon",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "test:embed": "tsx scripts/test-embedding.ts",
+    "ingest": "tsx --env-file=.env.local scripts/ingest.ts",
+    "test:search": "tsx --env-file=.env.local scripts/test-search.ts",
+    "test:generate": "tsx --env-file=.env.local scripts/test-generate.ts"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.117.1",
+    "@supabase/supabase-js": "^2.112.3",
+    "@xenova/transformers": "^2.17.2",
+    "next": "16.3.1",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tsx": "^4.23.12",
+    "typescript": "^5"
+  }
+}
