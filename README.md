@@ -1,4 +1,4 @@
-# NextTopic
+# Beacon
 
 A study recommender that suggests which DSA / system-design topic to review next. Built with Next.js, Supabase (Postgres + pgvector), a local embedding model (transformers.js), and Claude for the personalized explanation.
 

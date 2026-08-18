@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "NextTopic",
+  title: "Beacon",
   description:
     "A study recommender that suggests which DSA / system-design topic to review next.",
 };

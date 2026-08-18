@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <main className={styles.main}>
-        <h1>NextTopic</h1>
+        <h1>Beacon</h1>
         <p>
           A study recommender that suggests which DSA / system-design topic
           to review next.

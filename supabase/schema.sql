@@ -1,4 +1,4 @@
--- NextTopic: Supabase schema setup
+-- Beacon: Supabase schema setup
 -- Run this file manually in the Supabase SQL editor.
 
 -- 1. Enable the pgvector extension
