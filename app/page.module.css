@@ -1,5 +1,5 @@
 .page {
-  --background: #000;
+  --background: #fff;
   --foreground: #fff;
 
   --text-primary: #000;
@@ -25,6 +25,7 @@
   gap: 0;
   background-color: var(--foreground);
   border: 1px solid var(--border-color);
+  box-shadow: 0 1px 24px rgba(0, 0, 0, 0.08);
   padding: 0;
   margin: auto 0;
 }
